@@ -1,3 +1,33 @@
-.bg-sky-blue {
+
+ .bg-sky-blue {
     background-color: #87CEEB; /* This is a sky blue color */
  }
+ #meaningModal {
+     transition: opacity 0.3s ease-in-out;
+     opacity: 0; /* Start hidden */
+ }
+ .hidden {
+     display: none;
+ }
+ 
+ body::before {
+         content: "";
+         position: fixed;
+         top: 0;
+         left: 0;
+         right: 0;
+         bottom: 0;
+         background-color: rgba(0, 0, 0, 0.8); /* Black with 80% opacity */
+         z-index: -1; /* Keeps it behind your content */
+     }
+   
+     .typewriter-text {
+     border-right: 2px solid black;
+     white-space: nowrap;
+     overflow: hidden;
+ }
+ 
+ @keyframes blink {
+     50% { border-color: transparent }
+ }
+ 
