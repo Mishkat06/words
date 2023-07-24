@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Generator</title>
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@5.3.4/dist/simplebar.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+
+<style>
+    .bg-sky-blue {
+   background-color: #87CEEB; /* This is a sky blue color */
+}
+#meaningModal {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0; /* Start hidden */
+}
+.hidden {
+    display: none;
+}
+
+body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8); /* Black with 80% opacity */
+        z-index: -1; /* Keeps it behind your content */
+    }
+
+
+ </style>
+
+</head>
+
+<div class="section-container relative">
+    <div class="dimmed-bg absolute inset-0 bg-black opacity-80"></div>
+    <!-- Rest of your section content here -->
+</div>
+
+
+<body class="bg-black-100 h-screen flex items-center justify-center">
+    
+
+    <div class="bg-gray-400 p-8 rounded-lg shadow-xl w-96">
+        <h1 class="text-2xl mb-4 font-semibold">Word Generator</h1>
+        <input type="text" id="letters" placeholder="Enter letters..." class=" p-2 border rounded w-full mb-4">
+        <button id="generate" class="bg-blue-500 text-white w-full p-2 rounded hover:bg-blue-600 transition-all duration-200">Generate Words</button>
+    </div>
+
+    <!-- Modal Popup -->
+   <!-- Modal Popup -->
+
+<div id="modal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-opacity-50 bg-black hidden">
+    <div class="bg-gray-400 rounded-lg w-1/3 p-5">
+        <h2 id="modalTitle" class="text-2xl mb-4">Loading...</h2>
+        
+        <div id="loadingContainer" class="relative w-full h-4 bg-gray-300 rounded-lg">
+            <div id="loadingProgress" class="rounded-full bg-green-500" style="width: 0%; height: 100%;"></div>
+            <span id="loadingPercentage" class="absolute top-0 left-0 w-full h-full flex items-center justify-center">0%</span>
+        </div>
+
+        <ul id="wordList" data-simplebar class="max-h-64 overflow-y-auto hidden"></ul>
+        <button id="closeModal" class="mt-4 bg-red-500 text-white p-2 rounded hover:bg-red-600">Close</button>
+    </div>
+</div>
+<div id="meaningModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-opacity-50 bg-black hidden">
+    <div class="bg-gray-400 rounded-lg w-1/3 p-5">
+        <h2 id="meaningModalTitle" class="text-2xl mb-4">Word Meaning</h2>
+        <p id="meaningDescription" class="mb-4">Loading...</p>
+        <button id="closeMeaningModal" class="mt-4 bg-red-500 text-white p-2 rounded hover:bg-red-600">Close</button>
+    </div>
+</div>
+
+
+<div id="popup" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+    <!-- Background Overlay -->
+    
+
+    <!-- Popup content -->
+    <div class="bg-gray-400 p-8 rounded-xl shadow-lg w-96 relative z-10">
+        <!-- Video Container -->
+        <div class="w-40 h-40 rounded-full overflow-hidden absolute -mt-20 left-1/2 transform -translate-x-1/2 relative">
+            <video class="absolute w-full h-full object-cover object-center" autoplay loop muted playsinline>
+                <source src="D:\My Essential\Web\2nd web\.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="mt-5  text-center">
+            <p>Please maintain the instructions accordingly to see the magic.</p>
+        </div>
+        <button onclick="closePopup()" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded block mx-auto">I Understand</button>
+    </div>
+</div>
+
+
+
+
+
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/simplebar@5.3.4/dist/simplebar.min.js"></script>
+
+</body>
+
+</html>
