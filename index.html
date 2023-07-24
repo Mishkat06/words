@@ -34,6 +34,17 @@ body::before {
         background-color: rgba(0, 0, 0, 0.8); /* Black with 80% opacity */
         z-index: -1; /* Keeps it behind your content */
     }
+  
+    .typewriter-text {
+    border-right: 2px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
 
 
  </style>
@@ -47,6 +58,13 @@ body::before {
 
 
 <body class="bg-black-100 h-screen flex items-center justify-center">
+    
+    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 p-4 bg-gray-400 rounded-lg shadow-md">
+        <span class="typewriter-text font-mono"></span>
+    </div>
+    
+        <!-- ... rest of your content ... -->
+    
     
 
     <div class="bg-gray-400 p-8 rounded-lg shadow-xl w-96">
@@ -87,9 +105,10 @@ body::before {
     <!-- Popup content -->
     <div class="bg-gray-400 p-8 rounded-xl shadow-lg w-96 relative z-10">
         <!-- Video Container -->
-       <div class="w-25 h-25">
+        <div class="w-25 h-25">
             <img src="https://i.imgur.com/vS0kuwC.jpg" alt="Image Description" class="rounded-full">
           </div>
+          
 
         <div class="mt-5  text-center">
             <p>Please type random words as you wish. I can generate various types of words, acronyms, abbreviations, famous song names, Arabic word translations, and more for you. I was restricted to take more than 7 words to avoid high loading time.</p>
