@@ -270,3 +270,30 @@ function closePopup() {
 
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const typewriterTextElement = document.querySelector('.typewriter-text');
+    const text = "Created by Abu Bakar Mishkat";
+    let index = 0;
+
+    function typeText() {
+        if (index < text.length) {
+            typewriterTextElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeText, 100);  // adjust this value for typing speed
+        } else {
+            setTimeout(clearText, 2000);  // adjust this value for delay before retyping
+        }
+    }
+
+    function clearText() {
+        if (typewriterTextElement.textContent.length > 0) {
+            typewriterTextElement.textContent = typewriterTextElement.textContent.slice(0, -1);
+            setTimeout(clearText, 50);  // adjust this value for clearing speed
+        } else {
+            index = 0;
+            typeText();
+        }
+    }
+
+    typeText();  // start the typing effect
+});
